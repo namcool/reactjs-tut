@@ -7,12 +7,13 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.onAddProduct = this.onAddProduct.bind(this);
+    this.name = React.createRef(); 
   }
   onClick(){
     console.log("this is app component");
   }
   onAddProduct(){
-    console.log(this.refs.name.value);
+    console.log(this.name.current.value);
   }
   render(){
     var products = [
@@ -66,7 +67,7 @@ class App extends React.Component {
                 <div className="panel-body">
                 <div className="form-group">
                             <label>Tên sp</label>
-                            <input type="text" className="form-control" refs="name"/>
+                            <input type="text" className="form-control" ref={this.name}   />
                           </div>
                         <button type="submit" className="btn btn-primary" onClick={this.onAddProduct}>Lưu</button>
                 </div>
